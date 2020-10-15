@@ -10,7 +10,7 @@ use Doctrine\Common\Cache\Cache;
  */
 class SessionCache implements Cache{
 
-    private $sessionPrefix = 'ST_';
+    protected $sessionPrefix = 'ST_';
 
     public function fetch($id)
     {
