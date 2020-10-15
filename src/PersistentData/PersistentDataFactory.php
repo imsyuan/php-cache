@@ -17,7 +17,7 @@ class PersistentDataFactory
      *
      * @param PersistentDataInterface|string|null $handler
      *
-     * @throws InvalidArgumentException If the persistent data handler isn't "session", "memory", or an instance of Psr\SimpleCache\CacheInterface.
+     * @throws InvalidArgumentException If the persistent data handler isn't "session", "memory", or an instance of Psr\SimpleCache\CacheInterface(PSR-16).
      *
      * @return PersistentDataInterface
      */
@@ -41,6 +41,6 @@ class PersistentDataFactory
             return new FacebookMemoryPersistentDataHandler();
         }
 
-        throw new InvalidArgumentException('The persistent data handler must be set to "session", "memory", or be an instance of Psr\SimpleCache\CacheInterface');
+        throw new InvalidArgumentException('The persistent data handler must be set to "session", "memory", or be an instance of Psr\SimpleCache\CacheInterface(PSR-16)');
     }
 }
