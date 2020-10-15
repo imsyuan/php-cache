@@ -1,0 +1,17 @@
+{
+    "name": "steven.chang/doctrine_cache_demo",
+    "authors": [
+        {
+            "name": "steven.chang",
+            "email": "imsyuan@gmail.com"
+        }
+    ],
+    "require": {
+        "doctrine/cache": "^1.10"
+    },
+    "autoload": {
+        "psr-4": {
+            "Steven\\": "src/"
+        }
+    }
+}
