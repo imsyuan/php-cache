@@ -2,42 +2,29 @@
 
 namespace Steven\Cache;
 
-use Doctrine\Common\Cache\Cache;
+//use Doctrine\Common\Cache\Cache;
+//use Doctrine\Common\Cache\CacheProvider;
+use Steven\PersistentData\PersistentDataInterface;
 
 /**
  * Class SessionCache
  * @package Steven\Cache
  */
-class SessionCache implements Cache{
+class SessionCache implements PersistentDataInterface{
 
-    protected $sessionPrefix = 'ST_';
+    protected $sessionPrefix = 'STxxx_';
 
-    public function fetch($id)
+    public function get($key)
     {
-        if (isset($_SESSION[$this->sessionPrefix . $id])) {
-            return $_SESSION[$this->sessionPrefix . $id];
+        if (isset($_SESSION[$this->sessionPrefix . $key])) {
+            return $_SESSION[$this->sessionPrefix . $key];
         }
 
         return null;
     }
 
-    public function contains($id)
+    public function set($key, $value)
     {
-        // TODO: Implement contains() method.
-    }
-
-    public function save($id, $data, $lifeTime = 0)
-    {
-        $_SESSION[$this->sessionPrefix . $id] = $data;
-    }
-
-    public function delete($id)
-    {
-        // TODO: Implement delete() method.
-    }
-
-    public function getStats()
-    {
-        // TODO: Implement getStats() method.
+        $_SESSION[$this->sessionPrefix . $key] = $value;
     }
 }
